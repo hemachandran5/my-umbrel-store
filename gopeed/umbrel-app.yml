@@ -2,7 +2,7 @@ manifestVersion: 1
 id: gopeed
 name: Gopeed
 tagline: High-speed, open-source download manager
-icon: https://raw.githubusercontent.com/your-username/your-repo/master/gopeed/icon.png
+icon: https://raw.githubusercontent.com/hemachandran5/my-umbrel-store/master/gopeed/icon.png
 category: media
 version: "1.8.3"
 port: 9999
@@ -39,4 +39,5 @@ releaseNotes: >-
 dependencies:
 path: ""
 defaultUsername: ""
+
 defaultPassword: ""
