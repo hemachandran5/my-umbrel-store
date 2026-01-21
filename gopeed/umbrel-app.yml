@@ -1,8 +1,8 @@
 manifestVersion: 1
-id: gopeed
+id: hemsk-gopeed
 name: Gopeed
 tagline: High-speed, open-source download manager
-icon: https://raw.githubusercontent.com/hemachandran5/my-umbrel-store/master/gopeed/icon.png
+icon: https://raw.githubusercontent.com/dennysubke/dennys-umbrel-app-gallery/main/denny-gopeed/logo.png
 category: media
 version: "1.8.3"
 port: 9999
@@ -25,7 +25,7 @@ description: >-
   With its powerful performance, extensive protocol support, and user-friendly design, Gopeed offers a modern and reliable solution for managing downloads. It provides the right balance of speed, control, and simplicity, making it suitable for both everyday users and those with more advanced needs.
 developer: GopeedLab
 website: https://gopeed.com/
-submitter: your-username
+submitter: hemsk
 submission: https://github.com/getumbrel/umbrel-community-app-store
 repo: https://github.com/GopeedLab/gopeed
 support: https://github.com/GopeedLab/gopeed/issues
