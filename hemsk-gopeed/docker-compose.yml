@@ -13,4 +13,5 @@ services:
       - UMASK=022
     volumes:
       - ${APP_DATA_DIR}/data/storage:/app/storage
+
       - ${UMBREL_ROOT}/data/storage/downloads:/app/Downloads
