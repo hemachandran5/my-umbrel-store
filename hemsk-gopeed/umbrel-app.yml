@@ -23,6 +23,9 @@ description: >-
 
   
   With its powerful performance, extensive protocol support, and user-friendly design, Gopeed offers a modern and reliable solution for managing downloads. It provides the right balance of speed, control, and simplicity, making it suitable for both everyday users and those with more advanced needs.
+
+  ---
+  **Credits:** This app is powered by [Gopeed](https://gopeed.com/), an open-source project developed by GopeedLab.
 developer: GopeedLab
 website: https://gopeed.com/
 submitter: hemsk
@@ -32,6 +35,8 @@ support: https://github.com/GopeedLab/gopeed/issues
 gallery:
   - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-1.png
   - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-2.png
+  - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-4.png
+  - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-5.png
 releaseNotes: >-
   This version is configured to always pull the 'latest' Docker image from the official Gopeed repository. 
   
