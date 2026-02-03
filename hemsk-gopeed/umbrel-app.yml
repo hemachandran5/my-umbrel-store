@@ -33,10 +33,8 @@ submission: https://github.com/getumbrel/umbrel-community-app-store
 repo: https://github.com/GopeedLab/gopeed
 support: https://github.com/GopeedLab/gopeed/issues
 gallery:
-  - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-1.png
-  - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-2.png
-  - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-4.png
-  - https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-5.png
+  - https://github.com/GopeedLab/gopeed/raw/main/_docs/img/ui-demo.png
+  - https://github.com/GopeedLab/gopeed/raw/main/_docs/img/banner.png
 releaseNotes: >-
   This version is configured to always pull the 'latest' Docker image from the official Gopeed repository. 
   

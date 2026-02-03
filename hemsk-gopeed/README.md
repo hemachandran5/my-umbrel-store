@@ -10,11 +10,9 @@ This app is an Umbrel-compatible version of **[Gopeed](https://gopeed.com/)**. A
 
 Explore Gopeed's modern and intuitive interface:
 
-| Downloads List | Adding a Download |
+| UI Demo | Project Banner |
 | :---: | :---: |
-| ![Downloads List](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-1.png) | ![Adding a Download](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-2.png) |
-| **Settings** | **Statistics** |
-| ![Settings](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-4.png) | ![Statistics](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-5.png) |
+| ![UI Demo](https://github.com/GopeedLab/gopeed/raw/main/_docs/img/ui-demo.png) | ![Banner](https://github.com/GopeedLab/gopeed/raw/main/_docs/img/banner.png) |
 
 ## Features
 
