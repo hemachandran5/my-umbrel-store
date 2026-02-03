@@ -10,15 +10,11 @@ This app is an Umbrel-compatible version of **[Gopeed](https://gopeed.com/)**. A
 
 Explore Gopeed's modern and intuitive interface:
 
-````carousel
-![Downloads List](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-1.png)
-<!-- slide -->
-![Adding a Download](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-2.png)
-<!-- slide -->
-![Settings](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-4.png)
-<!-- slide -->
-![Statistics](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-5.png)
-````
+| Downloads List | Adding a Download |
+| :---: | :---: |
+| ![Downloads List](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-1.png) | ![Adding a Download](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-2.png) |
+| **Settings** | **Statistics** |
+| ![Settings](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-4.png) | ![Statistics](https://raw.githubusercontent.com/GopeedLab/gopeed/main/docs/resources/screenshot-5.png) |
 
 ## Features
 
