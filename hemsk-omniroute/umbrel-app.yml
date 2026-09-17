@@ -1,0 +1,38 @@
+manifestVersion: 1
+id: hemsk-omniroute
+name: OmniRoute
+tagline: Unified AI Gateway & LLM Router
+icon: https://raw.githubusercontent.com/hemachandran5/my-umbrel-store/main/hemsk-omniroute/icon.svg
+category: ai
+version: "1.0.1"
+port: 20128
+description: >-
+  🤖 OmniRoute is an open-source, self-hosted AI gateway that unifies access to 350+ AI providers and 1,200+ models under a single OpenAI-compatible API endpoint.
+  
+  It allows developers and home-lab enthusiasts to connect coding assistants and AI agents (such as Antigravity, Cursor, Claude Code, and Cline) through an intelligent reverse proxy.
+  
+  Key Features:
+  • Unified API: Standard OpenAI-compatible format (/v1/chat/completions) on port 20128.
+  • Provider Aggregation: Integrates Anthropic, OpenAI, Google Gemini, DeepSeek, Groq, Mistral, and 150+ free-tier models.
+  • Quota-Aware Failover: Automatically falls back to secondary models or providers when rate limits are reached.
+  • Prompt & Token Compression: Employs RTK and Caveman compression to reduce prompt tokens by 15–95%.
+  • Private & Self-Hosted: No external telemetry, keeping all routing logic local to your Umbrel server.
+
+  ---
+  **Credits:** Powered by [OmniRoute](https://github.com/diegosouzapw/OmniRoute) developed by Diego Souza.
+developer: Diego Souza
+website: https://github.com/diegosouzapw/OmniRoute
+submitter: hemsk
+submission: https://github.com/getumbrel/umbrel-community-app-store
+repo: https://github.com/diegosouzapw/OmniRoute
+support: https://github.com/diegosouzapw/OmniRoute/issues
+gallery:
+  - https://raw.githubusercontent.com/diegosouzapw/OmniRoute/main/docs/screenshots/01-providers.png
+  - https://raw.githubusercontent.com/diegosouzapw/OmniRoute/main/docs/screenshots/02-combos.png
+  - https://raw.githubusercontent.com/diegosouzapw/OmniRoute/main/docs/screenshots/03-analytics.png
+releaseNotes: >-
+  Fix data persistence by explicitly mapping DATA_DIR to /app/data so database, configurations, and credentials survive restarts.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
