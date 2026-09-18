@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: litert_gemma_server_1
+      APP_PORT: 20135
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: ghcr.io/hemachandran5/litert-gemma:latest
+    container_name: litert_gemma_server_1
+    restart: on-failure
+    stop_grace_period: 1m
+    ports:
+      - "20135:8000"
+    environment:
+      - PORT=8000
+      - DATA_DIR=/data
+      - MODEL_REPO=litert-community/Gemma3-1B-IT
+      - MODEL_FILE=gemma-3-1b-it.litertlm
+      - BACKEND=cpu
+      - HF_TOKEN=
+      - SYSTEM_PROMPT=You are Gemma, a helpful, thoughtful, and capable AI assistant running locally on a Raspberry Pi 4 via Google LiteRT-LM.
+    volumes:
+      - ${APP_DATA_DIR}/data:/data
