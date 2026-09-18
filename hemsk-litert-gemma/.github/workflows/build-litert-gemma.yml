@@ -1,0 +1,51 @@
+name: Build and Push LiteRT Gemma Container
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'hemsk-litert-gemma/**'
+      - '.github/workflows/build-litert-gemma.yml'
+  workflow_dispatch:
+
+jobs:
+  build-and-push:
+    name: Build & Push ARM64 Container to GHCR
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up QEMU (ARM64 Emulation)
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GitHub Container Registry (GHCR)
+        uses: docker/login-action@v3
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Lowercase Repository Owner Name
+        id: repo_owner
+        run: echo "owner=${GITHUB_REPOSITORY_OWNER,,}" >> $GITHUB_OUTPUT
+
+      - name: Build and Push ARM64 Container Image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./hemsk-litert-gemma
+          file: ./hemsk-litert-gemma/Dockerfile
+          platforms: linux/arm64
+          push: true
+          tags: |
+            ghcr.io/${{ steps.repo_owner.outputs.owner }}/litert-gemma:latest
+            ghcr.io/${{ steps.repo_owner.outputs.owner }}/litert-gemma:1.0.0
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
