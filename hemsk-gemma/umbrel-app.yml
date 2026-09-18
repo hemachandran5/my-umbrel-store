@@ -1,0 +1,35 @@
+manifestVersion: 1
+id: hemsk-gemma
+name: Gemma 4
+tagline: Google Gemma 4 on-device LLM on Raspberry Pi 4
+icon: https://raw.githubusercontent.com/hemachandran5/my-umbrel-store/main/hemsk-gemma/icon.svg
+category: ai
+version: "1.0.0"
+port: 20135
+description: >-
+  💎 Gemma 4 brings Google's next-generation multimodal open LLM directly to your Raspberry Pi 4 on umbrelOS.
+
+  Engineered specifically for low-power edge compute, this app runs Gemma 4 E2B (Instruction-Tuned, Q4_K_M quantization) powered by the high-performance llama.cpp engine with ARM NEON SIMD hardware acceleration.
+
+  Key Features:
+  • Built for Raspberry Pi 4: Optimized for Cortex-A72 with ARM NEON instructions, running comfortably within your Pi 4's 8 GB memory.
+  • Interactive Web Chat UI: Access a modern, responsive chat interface directly from your Umbrel dashboard with live token streaming, parameter controls, and conversation history.
+  • OpenAI-Compatible API: Fully exposes `/v1/chat/completions` and `/v1/models` on port 20135 for seamless integration with OmniRoute, OpenWebUI, Cursor, Cline, and agentic workflows.
+  • Auto Model Downloader: Automatically downloads and caches the Gemma 4 E2B GGUF model into your persistent Umbrel app storage on first launch.
+  • 100% Private & Offline: Operates entirely on your local hardware with zero cloud dependencies.
+
+  ---
+  **Model Source:** Google Gemma 4 E2B-IT (Quantized by Unsloth)
+developer: Google DeepMind
+website: https://deepmind.google/technologies/gemma/
+submitter: hemsk
+submission: https://github.com/getumbrel/umbrel-community-app-store
+repo: https://github.com/ggml-org/llama.cpp
+support: https://github.com/ggml-org/llama.cpp/issues
+gallery: []
+releaseNotes: >-
+  Initial release of Gemma 4 on umbrelOS powered by llama.cpp with ARM NEON acceleration for Raspberry Pi 4.
+dependencies: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""

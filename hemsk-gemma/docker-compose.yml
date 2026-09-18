@@ -1,0 +1,42 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: gemma_server_1
+      APP_PORT: 8080
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: ghcr.io/ggml-org/llama.cpp:server
+    container_name: gemma_server_1
+    restart: on-failure
+    stop_grace_period: 1m
+    ports:
+      - "20135:8080"
+    environment:
+      - HF_HOME=/models
+      - LLAMA_ARG_HOST=0.0.0.0
+      - LLAMA_ARG_PORT=8080
+      - LLAMA_ARG_HF_REPO=unsloth/gemma-4-E2B-it-GGUF
+      - LLAMA_ARG_HF_FILE=gemma-4-E2B-it-Q4_K_M.gguf
+      - LLAMA_ARG_CTX_SIZE=2048
+      - LLAMA_ARG_THREADS=4
+      - LLAMA_ARG_ALIAS=gemma-4-e2b-it
+    volumes:
+      - ${APP_DATA_DIR}/data:/models
+    command:
+      - "--hf-repo"
+      - "unsloth/gemma-4-E2B-it-GGUF"
+      - "--hf-file"
+      - "gemma-4-E2B-it-Q4_K_M.gguf"
+      - "--host"
+      - "0.0.0.0"
+      - "--port"
+      - "8080"
+      - "-c"
+      - "2048"
+      - "-t"
+      - "4"
+      - "--alias"
+      - "gemma-4-e2b-it"
