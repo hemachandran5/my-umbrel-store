@@ -1,0 +1,23 @@
+version: "3.7"
+
+services:
+  app_proxy:
+    environment:
+      APP_HOST: hemsk-omniroutepi_server_1
+      APP_PORT: 20128
+      PROXY_AUTH_ADD: "false"
+
+  server:
+    image: diegosouzapw/omniroute:latest
+    user: "1000:1000"
+    restart: on-failure
+    stop_grace_period: 40s
+    environment:
+      - PORT=20128
+      - DATA_DIR=/app/data
+      - STORAGE_ENCRYPTION_KEY=omniroute-persistent-storage-key-pi4-umbrel-2026-secure
+      - JWT_SECRET=omniroute-persistent-jwt-session-key-pi4-umbrel-2026-secure
+      - API_KEY_SECRET=omniroute-persistent-api-secret-key-pi4-umbrel-2026-secure
+    volumes:
+      - ${APP_DATA_DIR}/data:/app/data
+      - ${APP_DATA_DIR}/data:/home/node/.omniroute

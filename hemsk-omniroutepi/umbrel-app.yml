@@ -1,0 +1,23 @@
+manifestVersion: 1
+id: hemsk-omniroutepi
+name: OmniRoute
+version: "latest"
+tagline: AI Gateway and LLM routing hub
+icon: https://raw.githubusercontent.com/diegosouzapw/OmniRoute/main/public/icon-192.svg
+category: developer
+port: 20128
+description: >-
+  OmniRoute is an open-source, self-hosted AI gateway that acts as a single,
+  OpenAI-compatible API endpoint. Route requests across hundreds of AI providers
+  and models with features like quota-aware auto-fallback, caching, rate limiting,
+  and token compression.
+developer: Diego Souza
+website: https://github.com/diegosouzapw/OmniRoute
+submitter: HEMACHANDRANSK
+submission: https://github.com/diegosouzapw/OmniRoute
+repo: https://github.com/diegosouzapw/OmniRoute
+support: https://github.com/diegosouzapw/OmniRoute/issues
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
