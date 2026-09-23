@@ -4,16 +4,10 @@ FROM node:22-bookworm-slim
 LABEL maintainer="HEMACHANDRANSK"
 LABEL description="umbrelOS Persistent Node.js & NPM Process Manager"
 
-# Set environment defaults
 ENV DEBIAN_FRONTEND=noninteractive \
     NODE_ENV=production \
     PORT=20130 \
-    DATA_DIR=/app/data \
-    NPM_CONFIG_PREFIX=/app/data/npm-global \
-    NPM_CONFIG_CACHE=/app/data/npm-cache \
-    HOME=/app/data/home \
-    PM2_HOME=/app/data/home/.pm2 \
-    PATH=/app/data/npm-global/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+    DATA_DIR=/app/data
 
 # 1. Install native build essentials for ARM64 C/C++ compilation (better-sqlite3, tls-client-node, etc.)
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -29,10 +23,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ca-certificates \
     && rm -rf /var/lib/apt/lists/*
 
-# 2. Install PM2 globally into container system
-RUN npm install -g pm2 && npm cache clean --force
+# 2. Install PM2 globally into /usr/local so host volume mounts over /app/data do NOT mask it
+RUN npm install -g --prefix /usr/local pm2 && npm cache clean --force
 
-# 3. Create app and persistent mount directories
+# 3. Create app and mount directories
 RUN mkdir -p /app/gui /app/data
 
 # 4. Copy Web GUI dependencies and install
@@ -47,6 +41,13 @@ COPY public/ ./public/
 # 6. Copy Entrypoint script
 COPY entrypoint.sh /app/entrypoint.sh
 RUN chmod +x /app/entrypoint.sh
+
+# 7. Configure runtime storage redirects and PATH
+ENV NPM_CONFIG_PREFIX=/app/data/npm-global \
+    NPM_CONFIG_CACHE=/app/data/npm-cache \
+    HOME=/app/data/home \
+    PM2_HOME=/app/data/home/.pm2 \
+    PATH=/app/data/npm-global/bin:/app/gui/node_modules/.bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
 
 # Expose Web GUI and pre-allocated service ports
 EXPOSE 20130 20128 20129 8080 3000 3001

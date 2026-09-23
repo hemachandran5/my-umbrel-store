@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -eo pipefail
+set -e
 
 echo "=========================================================="
 echo " Starting umbrelOS Persistent Node Process Manager"
@@ -27,7 +27,7 @@ mkdir -p "${DATA_DIR}/9router"
 chmod -R 777 "${DATA_DIR}" 2>/dev/null || true
 
 # 2. Export environment variables
-export PATH="${NPM_BIN_DIR}:${PATH}:/usr/local/bin:/usr/bin:/bin"
+export PATH="${NPM_BIN_DIR}:/usr/local/bin:/usr/bin:/bin:${PATH}"
 export NPM_CONFIG_PREFIX="${NPM_GLOBAL_DIR}"
 export NPM_CONFIG_CACHE="${DATA_DIR}/npm-cache"
 export HOME="${HOME_DIR}"
@@ -38,14 +38,20 @@ echo "[Storage] NPM Global Prefix:    ${NPM_GLOBAL_DIR}"
 echo "[Storage] NPM Binary Path:      ${NPM_BIN_DIR}"
 echo "[Storage] HOME Directory:       ${HOME_DIR}"
 echo "[Storage] PM2 State Directory:  ${PM2_HOME}"
+echo "[System] Current PATH:          ${PATH}"
 
-# 3. Start or resurrect PM2 daemon
+# 3. Ensure PM2 is installed and reachable
+if ! command -v pm2 >/dev/null 2>&1; then
+  echo "[PM2] pm2 not found in PATH, installing..."
+  npm install -g --prefix /usr/local pm2 || npm install -g pm2
+fi
+
 echo "[PM2] Initializing PM2 process supervisor..."
-pm2 ping
+pm2 ping || true
 
 if [ -f "${PM2_HOME}/dump.pm2" ]; then
   echo "[PM2] Found persistent dump.pm2. Resurrecting saved background processes..."
-  pm2 resurrect || echo "[PM2] Warning: Could not resurrect all processes."
+  pm2 resurrect || echo "[PM2] Notice: No saved processes could be resurrected."
 else
   echo "[PM2] No previous dump.pm2 found. Fresh startup."
 fi
@@ -75,8 +81,11 @@ trap cleanup SIGTERM SIGINT
 
 # 5. Start Web GUI Server in background and wait
 echo "[Web GUI] Launching Process Manager Web Dashboard on port ${PORT:-20130}..."
-node /app/gui/server.js &
+cd /app/gui
+node server.js &
 SERVER_PID=$!
+
+echo "[Web GUI] Dashboard is running with PID ${SERVER_PID} on port ${PORT:-20130}."
 
 # Wait for process while allowing signal trapping
 wait "${SERVER_PID}"

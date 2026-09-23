@@ -25,7 +25,8 @@ try {
 }
 
 // Update process environment for spawned processes
-process.env.PATH = `${NPM_BIN_DIR}:${process.env.PATH || ''}:/usr/local/bin:/usr/bin:/bin`;
+const localBin = path.join(__dirname, 'node_modules', '.bin');
+process.env.PATH = `${NPM_BIN_DIR}:${localBin}:/usr/local/bin:/usr/bin:/bin:${process.env.PATH || ''}`;
 process.env.NPM_CONFIG_PREFIX = NPM_GLOBAL_DIR;
 process.env.HOME = HOME_DIR;
 process.env.PM2_HOME = PM2_HOME;
