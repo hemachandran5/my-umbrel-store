@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+DATA_DIR="${APP_DATA_DIR}/data"
+
+echo "[pre-start] Initializing persistent storage structure at ${DATA_DIR}..."
+
+mkdir -p "${DATA_DIR}/npm-global/bin"
+mkdir -p "${DATA_DIR}/npm-global/lib"
+mkdir -p "${DATA_DIR}/npm-cache"
+mkdir -p "${DATA_DIR}/home/.pm2"
+mkdir -p "${DATA_DIR}/processes"
+mkdir -p "${DATA_DIR}/omniroute"
+mkdir -p "${DATA_DIR}/9router"
+
+# Set full read/write permissions on host to eliminate EACCES
+chmod -R u+rwX,g+rwX,o+rwX "${DATA_DIR}" 2>/dev/null || true
+
+echo "[pre-start] Persistent storage initialized with full read/write permissions."

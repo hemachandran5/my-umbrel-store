@@ -1,0 +1,28 @@
+manifestVersion: 1.1
+id: hemsk-nodepm
+name: Node Process Manager
+version: "1.0.0"
+tagline: Persistent NPM & Node.js process supervisor and AI gateway runner
+icon: https://raw.githubusercontent.com/hemachandransk/my-umbrel-store/main/hemsk-nodepm/icon.svg
+category: developer
+port: 20130
+description: >-
+  Node Process Manager is a high-performance, persistent background daemon runner and
+  NPM package supervisor built specifically for umbrelOS on the Raspberry Pi 4 (linux/arm64).
+
+  Features:
+  - 1-Click AI Gateway Presets: Run OmniRoute (port 20128), 9Router (port 20129), or Free LLM API (port 8080) with guaranteed SQLite persistence.
+  - Universal NPM Package Manager: Install, update, and cleanly uninstall ANY global package (discord bots, webhooks, scrapers, APIs) with real-time streaming console logs.
+  - Zero-EACCES Persistence: Redirects NPM_CONFIG_PREFIX, HOME, and PM2_HOME to persistent host storage, completely eliminating permission denials and SQLite temporary file wipeouts.
+  - PM2 Background Supervision: Automatically resurrects (pm2 resurrect) all saved processes on container reboot or system restarts.
+  - Live Storage Diagnostics: Real-time SQLite WAL mode probe and disk integrity monitor.
+developer: HEMACHANDRANSK
+website: https://github.com/hemachandransk/my-umbrel-store
+submitter: HEMACHANDRANSK
+submission: https://github.com/hemachandransk/my-umbrel-store
+repo: https://github.com/hemachandransk/my-umbrel-store
+support: https://github.com/hemachandransk/my-umbrel-store/issues
+gallery: []
+path: ""
+defaultUsername: ""
+defaultPassword: ""
